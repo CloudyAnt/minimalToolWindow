@@ -1,0 +1,33 @@
+plugins {
+    id 'org.jetbrains.intellij' version '1.10.0'
+    id 'java'
+}
+
+group 'cn.itscloudy'
+version '1.0.0'
+
+intellij {
+    plugins = ['com.intellij.java']
+}
+intellij {
+    localPath = "/Applications/IntelliJ CE 2022.2.5.app/Contents"
+}
+dependencies {
+}
+
+processResources {
+    from('src/main/resources') {
+        include '*.properties'
+        include '*.xml'
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = "UTF-8"
+}
+test {
+    useJUnitPlatform()
+}
+tasks.test {
+    systemProperty("idea.force.use.core.classloader", "true")
+}
