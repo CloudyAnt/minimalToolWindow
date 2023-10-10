@@ -13,6 +13,9 @@ intellij {
     localPath = "/Applications/IntelliJ CE 2022.2.5.app/Contents"
 }
 dependencies {
+    implementation 'org.apache.httpcomponents:fluent-hc:4.5.14'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+    implementation 'commons-io:commons-io:2.14.0'
 }
 
 processResources {

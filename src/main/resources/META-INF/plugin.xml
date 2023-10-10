@@ -1,0 +1,14 @@
+<idea-plugin>
+    <id>cn.itscloudy.minimaltoolwindow</id>
+    <name>Minimal Tool Window</name>
+    <version>0.0.1</version>
+    <vendor email="iiim.cloudy@gmail.com" url="https://cloudyant.github.io/">MinimalToolWindow</vendor>
+
+    <idea-version since-build="222.4554.10"/>
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow id="minimalToolWindow" icon="/imgs/icon.png" secondary="false" anchor="right" canCloseContents="false"
+                    factoryClass="cn.itscloudy.mtw.MyToolWindowFactory"/>
+    </extensions>
+</idea-plugin>
