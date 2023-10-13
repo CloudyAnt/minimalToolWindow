@@ -13,7 +13,7 @@ intellij {
     plugins = ['com.intellij.java']
 }
 intellij {
-    localPath = "/Applications/IntelliJ CE 2022.2.5.app/Contents"
+    localPath = "D:\\Intellij IDEA 2022.2"
     intellij.updateSinceUntilBuild = false
 }
 dependencies {
