@@ -11,6 +11,7 @@ intellij {
 }
 intellij {
     localPath = "/Applications/IntelliJ CE 2022.2.5.app/Contents"
+    intellij.updateSinceUntilBuild = false
 }
 dependencies {
 }
