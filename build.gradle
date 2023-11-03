@@ -5,6 +5,9 @@ plugins {
 
 group 'cn.itscloudy'
 version '1.0.0'
+repositories {
+    mavenCentral()
+}
 
 intellij {
     plugins = ['com.intellij.java']
