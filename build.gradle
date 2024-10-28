@@ -1,5 +1,5 @@
 plugins {
-    id 'org.jetbrains.intellij' version '1.10.0'
+    id 'org.jetbrains.intellij' version '1.16.0'
     id 'java'
 }
 
@@ -13,7 +13,7 @@ intellij {
     plugins = ['com.intellij.java']
 }
 intellij {
-    localPath = "/Applications/IntelliJ CE 2022.2.5.app/Contents"
+    localPath = "/Applications/IntelliJ CE 2023.3.6.app/Contents"
     intellij.updateSinceUntilBuild = false
 }
 dependencies {

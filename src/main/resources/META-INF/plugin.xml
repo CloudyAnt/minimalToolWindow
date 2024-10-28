@@ -11,4 +11,10 @@
         <toolWindow id="minimalToolWindow" icon="/imgs/icon.png" secondary="false" anchor="right" canCloseContents="false"
                     factoryClass="cn.itscloudy.mtw.MyToolWindowFactory"/>
     </extensions>
+    <actions>
+        <action class="cn.itscloudy.mtw.ShowSelectionAction" text="Show Selection" description="Show Selection"
+                id="ShowSelection" icon="/imgs/icon.png">
+            <add-to-group group-id="EditorPopupMenu3" anchor="last"/>
+        </action>
+    </actions>
 </idea-plugin>
