@@ -36,6 +36,7 @@ public class PanelWithSplitter {
     private final Project project;
     private JPanel rootPanel;
     private JPanel middlePanel;
+    private JPanel secondPanel;
     private Inlay<MyRenderer> inlay;
     private JBCefBrowser browser;
 
@@ -43,15 +44,29 @@ public class PanelWithSplitter {
         this.project = project;
         middlePanel.setBackground(JBColor.BLUE);
 
+        MyDisplayHandler handler = new MyDisplayHandler();
 
         JBCefClient cefClient = JBCefApp.getInstance().createClient();
-        MyDisplayHandler handler = new MyDisplayHandler();
+        JBCefBrowser browser1 = new JBCefBrowserBuilder().setClient(cefClient).build();
+        browser1.loadURL("data:text/html;charset=utf-8," + "<html><body><h1>Hello, World!</h1></body></html>");
+        secondPanel.setLayout(new BorderLayout());
+        secondPanel.add(browser1.getComponent(), BorderLayout.CENTER);
+
+        new Thread(() -> {
+            try {
+                Thread.sleep(5 * 1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            browser1.loadHTML("<html><body><h1>Hello, World! 2</h1></body></html>");
+        }).start();
 
         browser = new JBCefBrowserBuilder().setClient(cefClient).build();
         CefApp.getInstance().registerSchemeHandlerFactory("http", "myproject",
                 (b, frame, s, request) -> new MyResourceHandler());
 //        browser.loadURL("file:///Users/jiaqichai/gitclones/minimalToolWindow/src/main/resources/webview/index.html");
-        browser.loadURL("http://myproject/webview/index.html");
+        browser.loadURL("data:text/html;charset=utf-8," + "<html><body><h1>Hello, World!</h1></body></html>");
+//        browser.loadURL("http://myproject/webview/index.html");
         cefClient.addDisplayHandler(handler, browser.getCefBrowser());
         middlePanel.setLayout(new BorderLayout());
         middlePanel.add(browser.getComponent(), BorderLayout.CENTER);
