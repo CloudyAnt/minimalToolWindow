@@ -15,11 +15,17 @@ public class MyToolWindowFactory implements DumbAware, ToolWindowFactory {
 
     @Override
     public void createToolWindowContent(@NotNull Project project, @NotNull ToolWindow toolWindow) {
-        ContentFactory contentFactory = ContentFactory.getInstance();
         PanelWithSplitter pws = new PanelWithSplitter(project);
         project.putUserData(PwsKey, pws);
-        Content panelWithSplitterContent = contentFactory.createContent(pws.getRootPanel(),
-                "PanelWithSplitter", false);
+
+        addContent(pws, toolWindow);
+        addContent(new WebTest(project), toolWindow);
+    }
+
+    private static void addContent(MtwContent content, @NotNull ToolWindow toolWindow) {
+        ContentFactory contentFactory = ContentFactory.getInstance();
+        Content panelWithSplitterContent = contentFactory.createContent(content.getRootPanel(),
+                content.getName(), false);
         toolWindow.getContentManager().addContent(panelWithSplitterContent);
     }
 }
