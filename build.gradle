@@ -13,10 +13,11 @@ intellij {
     plugins = ['com.intellij.java']
 }
 intellij {
-    localPath = "/Applications/IntelliJ CE 2022.2.5.app/Contents"
+    localPath = "/Applications/IntelliJ CE 2023.3.6.app/Contents"
     intellij.updateSinceUntilBuild = false
 }
 dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
 
 processResources {
